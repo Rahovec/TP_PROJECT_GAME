@@ -1,7 +1,9 @@
+import sys
 import os
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (7,30)
 import pygame
-from pygame.locals import *
+
+
 
 def toggle_fullscreen():
     screen = pygame.display.get_surface()
@@ -31,7 +33,7 @@ x = 30; y = 30
 pl_width = 50; pl_height = 50
 room_width = 1280; room_height = 800
 screen = pygame.display.set_mode((room_width,room_height))
-toggle_fullscreen()
+#toggle_fullscreen()
 done = False
 is_blue = True
 move_speed = 15
@@ -47,7 +49,7 @@ def get_image(path):
                 _image_library[path] = image
         return image
 
-background = pygame.image.load("grass.png")
+background = pygame.image.load('textures/grass.png')
 # PLAYER MOVEMENT
 def player_move(turn,speed):
     global x; global y
@@ -76,8 +78,7 @@ while not done:
         if pressed[pygame.K_RIGHT]: player_move("right",move_speed)
         if pressed[pygame.K_ESCAPE]: pygame.quit()
         
-        screen.blit(get_image('ball.png'), (x, y))
+        screen.blit(get_image('textures/ball.png'), (x, y))
         
         pygame.display.flip()
         clock.tick(120)
-
